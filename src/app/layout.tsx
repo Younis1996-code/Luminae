@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Lato } from "next/font/google";
 import "./globals.css";
+import StoreProvider from "@/redux/StoreProvider";
 
 const lato = Lato({
   variable: "--font-lato",
@@ -23,7 +24,9 @@ export default function RootLayout({
       <body
         className={`${lato.variable} font-lato text-Grey-900 antialiased`}
       >
-        {children}
+        <StoreProvider>
+          {children}
+        </StoreProvider>
       </body>
     </html>
   );
