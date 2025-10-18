@@ -1,10 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { useDispatch, useSelector, useStore } from 'react-redux'
+import flashSalesReducer from "./slices/flashSalesSlice";
+
 
 export const makeStore = () => {
   return configureStore({
-    reducer: {}
-  })
+    reducer: {
+      flashSales: flashSalesReducer,
+    },
+  });
 }
 
 // Infer the type of makeStore
