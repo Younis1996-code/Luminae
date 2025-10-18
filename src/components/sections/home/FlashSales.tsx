@@ -7,6 +7,7 @@ import Button from "@/components/ui/Button";
 import { useEffect, useState } from "react";
 import ContainerX from "@/components/shared/Containers/ContainerX";
 import { useRouter } from "next/navigation"; // 👈 import router
+import ContainerY from "@/components/shared/Containers/ContainerY";
 
 export default function FlashSalesSection() {
   const router = useRouter(); // 👈 initialize router
@@ -30,7 +31,7 @@ export default function FlashSalesSection() {
   const shouldShowButton = flashSales.length > initialLimit;
 
   return (
-    <ContainerX>
+    <ContainerX className="my-6 md:my-21">
       <section className="flex flex-col space-y-12">
         <div className="flex justify-between items-center">
           <Heading level={3} size="h28" weight="medium" lineH="lh20">
@@ -38,11 +39,13 @@ export default function FlashSalesSection() {
           </Heading>
 
           {shouldShowButton && (
-            <Button onClick={() => router.push("/flash-sales")} >View More</Button>
+            <Button onClick={() => router.push("/flash-sales")}>
+              View More
+            </Button>
           )}
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
           {displayedItems.map((item) => (
             <FlashSalesCard
               key={item.id}
@@ -52,7 +55,7 @@ export default function FlashSalesSection() {
               rating={item.rating}
               newPrice={item.newPrice}
               oldPrice={item.oldPrice}
-              time = {item.time}
+              time={item.time}
             />
           ))}
         </div>

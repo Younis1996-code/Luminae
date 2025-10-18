@@ -11,10 +11,10 @@ const ViewAllButton = ({ children, onClick }: ViewAllButtonProps) => {
   return (
     <button
       onClick={onClick}
-      className="text-Grey-800 hover:text-mBlue-600 transition flex items-center"
+      className="text-Grey-800 hover:text-mBlue-600 transition flex items-center text-[3.76569vw] md:text-[1.816347vw] lg:text-[1.5vw] xl:text-[1.25vw]"
     >
       {children}
-      <RightArrow className="text-sm hover:text-mBlue-600 ml-1" />
+      <RightArrow className="text-[3.76569vw] md:text-[1.816347vw] lg:text-[1.5vw] xl:text-[1.25vw] hover:text-mBlue-600 ml-1" />
     </button>
   );
 };
