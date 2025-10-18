@@ -34,7 +34,7 @@ export default function FlashSalesSection() {
     <ContainerX className="my-6 md:my-21">
       <section className="flex flex-col space-y-12">
         <div className="flex justify-between items-center">
-          <Heading level={3} size="h28" weight="medium" lineH="lh20">
+          <Heading level={3} size="h28" weight="bold" lineH="lh20">
             Flash Sales
           </Heading>
 
