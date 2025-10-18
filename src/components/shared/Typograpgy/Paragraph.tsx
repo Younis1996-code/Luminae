@@ -2,7 +2,7 @@ import React from "react";
 
 
 type Size = "p24" | "p20" | "p18" | "p16" | "p14" | "p12" ;
-type Weight = "normal" | "medium" | "semibold" ;
+type Weight = "normal" | "medium" | "semibold" | "bold" ;
 type LineH = "lh28" | "lh25" | "lh20" ;
 
 interface Props {
@@ -26,6 +26,7 @@ export default function Paragraph({ children, size = "p18", className = "", weig
     normal: "font-normal",
     medium: "font-medium",
     semibold: "font-semibold",
+    bold: "font-bold",
   }[weight];
   const LineHClass = {
     lh28: "leading-[28px]",
