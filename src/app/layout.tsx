@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Lato } from "next/font/google";
 import "./globals.css";
+import { Provider } from "react-redux";
+import { ReduxProvider } from "@/providers/ReduxProvider";
 
 const lato = Lato({
   variable: "--font-lato",
@@ -20,10 +22,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${lato.variable} font-lato text-Grey-900 antialiased`}
-      >
-        {children}
+      <body className={`${lato.variable} font-lato text-Grey-900 antialiased`}>
+        <ReduxProvider>{children}</ReduxProvider>
       </body>
     </html>
   );
