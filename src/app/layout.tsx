@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Lato } from "next/font/google";
 import "./globals.css";
 import StoreProvider from "@/redux/StoreProvider";
+import Footer from "@/sections/shared/Footer";
 
 const lato = Lato({
   variable: "--font-lato",
@@ -26,6 +27,7 @@ export default function RootLayout({
       >
         <StoreProvider>
           {children}
+          <Footer />
         </StoreProvider>
       </body>
     </html>
