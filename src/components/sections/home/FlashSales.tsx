@@ -7,7 +7,6 @@ import Button from "@/components/ui/Button";
 import { useEffect, useState } from "react";
 import ContainerX from "@/components/shared/Containers/ContainerX";
 import { useRouter } from "next/navigation"; // 👈 import router
-import ContainerY from "@/components/shared/Containers/ContainerY";
 
 export default function FlashSalesSection() {
   const router = useRouter(); // 👈 initialize router
@@ -15,20 +14,8 @@ export default function FlashSalesSection() {
     (state: RootState) => state.flashSales
   );
 
-  const [isSmallScreen, setIsSmallScreen] = useState(true);
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(max-width: 639px)");
-    setIsSmallScreen(mediaQuery.matches);
-
-    const handleResize = () => setIsSmallScreen(mediaQuery.matches);
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  const initialLimit = isSmallScreen ? 2 : 4;
-  const displayedItems = flashSales.slice(0, initialLimit);
-  const shouldShowButton = flashSales.length > initialLimit;
+  const displayedItems = flashSales.slice(0, 4);
+  const shouldShowButton = flashSales.length > 4;
 
   return (
     <ContainerX className="my-6 md:my-21">
@@ -45,7 +32,14 @@ export default function FlashSalesSection() {
           )}
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        <div
+          className="
+          flex gap-5 p-1 overflow-x-auto scrollbar-hide scroll-smooth
+          sm:grid sm:grid-cols-2 
+          lg:grid-cols-4
+        "
+        >
+          {" "}
           {displayedItems.map((item) => (
             <FlashSalesCard
               key={item.id}

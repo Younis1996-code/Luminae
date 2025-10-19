@@ -29,7 +29,7 @@ const FlashSalesCard = ({
   time
 }: FlashSalesCardProps) => {
   return (
-    <div className="flex flex-col items-center w-full rounded-lg px-10 py-5 shadow-[0_0_12px_0_rgba(0,0,0,0.1)] space-y-4">
+    <div className="flex flex-col items-center w-full rounded-lg px-10 py-5 shadow-[0_0_12px_0_rgba(0,0,0,0.1)] space-y-4 min-w-[200px]">
       <Heading
         level={3}
         size="h16"
