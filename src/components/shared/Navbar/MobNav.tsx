@@ -1,17 +1,32 @@
-'use client'
+"use client";
 
-import TransitionLink from '@/components/ui/TransitionLink';
-import { usePathname } from 'next/navigation';
-import React, { MouseEvent, useEffect } from 'react'
-import { NavLinks } from './Navbar';
-import CatBtn from './CatBtn';
-import LangCurBtns from './LangCurBtns';
-import SignBtn from './SignBtn';
-import FavBtn from './FavBtn';
+import TransitionLink from "@/components/ui/TransitionLink";
+import { usePathname } from "next/navigation";
+import React, { MouseEvent, useEffect } from "react";
+import { NavLinks } from "./Navbar";
+import CatBtn from "./CatBtn";
+import LangCurBtns from "./LangCurBtns";
+import SignBtn from "./SignBtn";
+import FavBtn from "./FavBtn";
 
-const MobNav = ({navLinks, isMenuOpen, setIsMenuOpen, scrollTop}: {navLinks: NavLinks[], isMenuOpen: boolean, setIsMenuOpen: React.Dispatch<React.SetStateAction<boolean>>, scrollTop: () => void}) => {
-    const pathName = usePathname();
-    //   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+interface Props {
+  navLinks: NavLinks[];
+  isMenuOpen: boolean;
+  setIsMenuOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  scrollTop: () => void;
+  setCatNavOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  catNavOpen?: boolean;
+}
+
+const MobNav = ({
+  navLinks,
+  isMenuOpen,
+  setIsMenuOpen,
+  scrollTop,
+  setCatNavOpen,
+  catNavOpen,
+}: Props) => {
+  const pathName = usePathname();
 
   useEffect(() => {
     const handleResize = () => {
@@ -33,26 +48,9 @@ const MobNav = ({navLinks, isMenuOpen, setIsMenuOpen, scrollTop}: {navLinks: Nav
     toggleMenu();
   };
 
-//   const navLinkStyles = ({ isActive }: { isActive: boolean }) => {
-//     const baseStyles =
-//       "text-White xl:py-3.5 md:py-3 transition-all ease-in-out duration-1000";
-//     const activeStyles = "bg-Grey-08 border-Grey-15 md:px-5 xl:px-6 rounded-lg";
-//     const inactiveStyles = "border-Grey-10";
-
-//     return isActive
-//       ? `${baseStyles} ${activeStyles}`
-//       : `${baseStyles} ${inactiveStyles}`;
-//   };
-
-//   const scrollTop = () => {
-//     window.scrollTo({
-//       top: 0,
-//       behavior: "smooth",
-//     });
-//   };
   return (
     <>
-        {isMenuOpen && (
+      {isMenuOpen && (
         <div
           className="fixed md:hidden top-0 left-0 w-screen h-screen bg-Grey-900 opacity-20 z-40"
           onClick={handleOverlayClick}
@@ -65,28 +63,34 @@ const MobNav = ({navLinks, isMenuOpen, setIsMenuOpen, scrollTop}: {navLinks: Nav
         }`}
         aria-label="Mobile Navigation"
       >
-        <div className="mt-[180px] flex flex-col items-start gap-8">
-          <div className='flex flex-col items-start'>
+        <div className="mt-[180px] flex flex-col items-start gap-8 w-full">
+          <div className="flex flex-col items-start">
             {navLinks.map(({ name, href }) => {
-            const isActive =
-              pathName === href || (pathName?.startsWith(href) && href !== "/");
-            return (
-              <TransitionLink
-                key={href}
-                href={href}
-                onClick={toggleMenu}
-                className={`w-full p-3 ${
-                  isActive ? "border-r-2 border-mBlue-600 font-semibold" : ""
-                }`}
-              >
-                {name}
-              </TransitionLink>
-            );
-          })}
+              const isActive =
+                pathName === href ||
+                (pathName?.startsWith(href) && href !== "/");
+              return (
+                <TransitionLink
+                  key={href}
+                  href={href}
+                  onClick={toggleMenu}
+                  className={`w-full p-3 ${
+                    isActive ? "border-r-2 border-mBlue-600 font-semibold" : ""
+                  }`}
+                >
+                  {name}
+                </TransitionLink>
+              );
+            })}
           </div>
 
-          <div className='flex flex-col items-start'>
-            <CatBtn aside />
+          <div className="flex flex-col items-start w-full">
+            <CatBtn
+              aside
+              setCatNavOpen={setCatNavOpen}
+              catNavOpen={catNavOpen}
+            />
+
             <LangCurBtns aside />
           </div>
 
@@ -94,11 +98,10 @@ const MobNav = ({navLinks, isMenuOpen, setIsMenuOpen, scrollTop}: {navLinks: Nav
             <SignBtn aside />
             <FavBtn aside />
           </div>
-          
         </div>
       </aside>
     </>
-  )
-}
+  );
+};
 
-export default MobNav
+export default MobNav;

@@ -56,6 +56,8 @@
    --color-Green-800: #008644;
    --color-Green-900: #00662F;
 
+   --breakpoint-xs: 360px;
+
 }
 
 :root {

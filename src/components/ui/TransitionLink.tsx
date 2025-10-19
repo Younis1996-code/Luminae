@@ -28,7 +28,6 @@ export default function TransitionLink({
     const body = document.querySelector("body");
     body?.classList.add(
       "opacity-0",
-      // "bg-[#141414]",
       "translate-y-[-40px]",
       "blur-[12px]",
       "transition-[opacity,background,transform,filter]",
@@ -45,7 +44,6 @@ export default function TransitionLink({
 
     body?.classList.remove(
       "opacity-0",
-      // "bg-[#141414]",
       "translate-y-[-40px]",
       "blur-[12px]",
       "transition-[opacity,background,transform,filter]",
