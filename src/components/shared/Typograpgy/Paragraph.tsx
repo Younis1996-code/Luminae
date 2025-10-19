@@ -1,9 +1,9 @@
 import React from "react";
 
 
-type Size = "p24" | "p20" | "p18" | "p16" | "p14" | "p12" | "p10";
-type Weight = "normal" | "medium" | "semibold" | "extrabold" | "bold" ;
-type LineH = "lh28" | "lh25" | "lh20" | "lh30";
+type Size = "p24" | "p20" | "p18" | "p16" | "p14" | "p12" | "p10" ;
+type Weight = "normal" | "medium" | "semibold" | "extrabold" | "bold"  ;
+type LineH = "lh28" | "lh25" | "lh20" | "lh30" ;
 
 interface Props {
   children: React.ReactNode;
