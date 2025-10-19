@@ -60,7 +60,7 @@ const FirstNav = ({
             placeholder="Search Products"
             className="max-xs:max-w-[45%] xs:flex-1 xs:min-w-fit border-none outline-none focus:outline-none text-sm font-normal leading-[20px] placeholder:text-Grey-400"
           />
-          <div className="flex items-center gap-3 w-fit">
+          <div className="flex items-center gap-3 w-fit 2xl:min-w-fit">
             <Dropdown
               className="pr-3 border-r border-Grey-100"
               size="w-6 h-6"
