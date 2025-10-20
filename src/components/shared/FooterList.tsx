@@ -2,6 +2,7 @@
 
 import {type FooterList } from "@/data/footerData"
 import Heading from "./Typograpgy/Heading";
+import Link from "next/link";
 
 interface FooterListProps {
   footerList:FooterList;
@@ -9,10 +10,19 @@ interface FooterListProps {
 
 const FooterList = ({footerList} : FooterListProps) => {
   return (
-    <div className="flex flex-col gap-[25px] items-start justify-start">
-      <h5 className="text-sm ">
+    <div className="flex flex-col gap-[25px] items-start justify-start min-w-[134px] lg:min-w-auto">
+      <Heading size="h14" weight="bold" lineH="lh20" level={5} className="text-Grey-800">
         {footerList.title}
-      </h5>
+      </Heading>
+      <div role="list" className="flex flex-col gap-[15px] items-start justify-start">
+        {
+          footerList.links.map((link,idx)=>(
+            <Link href={link.linkTo} key={idx} className="font-normal text-sm leading-5 text-Grey-600 hover:underline">
+              {link.linkText}
+            </Link>
+          ))
+        }
+      </div>
     </div>
   )
 }
