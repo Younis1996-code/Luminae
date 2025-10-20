@@ -3,6 +3,7 @@ import { Lato } from "next/font/google";
 import "./globals.css";
 import StoreProvider from "@/redux/StoreProvider";
 import Footer from "@/sections/shared/Footer";
+import Navbar from "@/components/shared/Navbar/Navbar";
 
 const lato = Lato({
   variable: "--font-lato",
@@ -23,9 +24,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${lato.variable} font-lato text-Grey-900 antialiased`}
+        className={`${lato.variable} font-lato text-Grey-900 antialiased transition-[opacity,background,transform,filter] ease-in-out duration-400`}
       >
         <StoreProvider>
+          <Navbar />
           {children}
           <Footer />
         </StoreProvider>
