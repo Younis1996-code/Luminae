@@ -1,3 +1,5 @@
+'use client'
+
 import React from "react";
 import ContainerX from "../Containers/ContainerX";
 import MobileMenu from "@/components/ui/svg/MobileMenu";

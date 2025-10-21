@@ -1,3 +1,5 @@
+'use client';
+
 import DropDown1 from "@/components/ui/DropDown1";
 import SearchIcon from "@/components/ui/svg/SearchIcon";
 import { RootState } from "@/redux/store";

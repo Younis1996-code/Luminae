@@ -1,3 +1,5 @@
+'use client';
+
 import Cart from "@/components/ui/svg/Cart";
 import React from "react";
 import Paragraph from "../Typograpgy/Paragraph";

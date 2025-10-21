@@ -1,3 +1,5 @@
+'use client';
+
 import DropDown1 from "@/components/ui/DropDown1";
 import TransitionLink from "@/components/ui/TransitionLink";
 import { setCurrency, setLanguage } from "@/redux/slices/langCurSlice";
@@ -6,7 +8,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-const currency: string[] = ["USD", "EUR", "GBP", "INR", "JPY", "CNY", "KRW"];
+// const currency: string[] = ["USD", "EUR", "GBP", "INR", "JPY", "CNY", "KRW"];
 export const lang: string[] = [
   "English",
   "Spanish",

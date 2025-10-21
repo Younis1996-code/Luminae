@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useEffect, useRef, useState } from 'react'
 import Paragraph from '../shared/Typograpgy/Paragraph';
 import DropdownIcon from './svg/DropdownIcon';
