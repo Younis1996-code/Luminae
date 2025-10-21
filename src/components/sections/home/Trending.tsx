@@ -5,23 +5,21 @@ import FlashSalesCard from "@/components/cards/FlashSalesCard";
 import Heading from "@/components/shared/Typograpgy/Heading";
 import Button from "@/components/ui/Button";
 import ContainerX from "@/components/shared/Containers/ContainerX";
-import { useRouter } from "next/navigation"; 
+import { useRouter } from "next/navigation";
+const Trending = () => {
+      const router = useRouter();
+      const { items: flashSales } = useSelector(
+        (state: RootState) => state.flashSales
+      );
 
-export default function FlashSalesSection() {
-  const router = useRouter(); 
-  const { items: flashSales } = useSelector(
-    (state: RootState) => state.flashSales
-  );
-
-  const displayedItems = flashSales.slice(0, 4);
-  const shouldShowButton = flashSales.length > 4;
-
+      const displayedItems = flashSales.slice(0, 4);
+      const shouldShowButton = flashSales.length > 4;
   return (
     <ContainerX className="my-6 md:my-21">
       <section className="flex flex-col space-y-12">
         <div className="flex justify-between items-center">
           <Heading level={3} size="h28" weight="bold" lineH="lh20">
-            Flash Sales
+            Trending must-haves
           </Heading>
 
           {shouldShowButton && (
@@ -39,7 +37,7 @@ export default function FlashSalesSection() {
         "
         >
           {" "}
-          {displayedItems.map((item) => (
+          {/* {displayedItems.map((item) => (
             <FlashSalesCard
               key={item.id}
               title={item.title}
@@ -50,9 +48,11 @@ export default function FlashSalesSection() {
               oldPrice={item.oldPrice}
               time={item.time}
             />
-          ))}
+          ))} */}
         </div>
       </section>
     </ContainerX>
   );
-}
+};
+
+export default Trending;
