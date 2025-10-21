@@ -1,4 +1,4 @@
-type StarProp = {
+export type StarProp = {
   className?: string;
   hoverClassName?: string;
   color?: string;

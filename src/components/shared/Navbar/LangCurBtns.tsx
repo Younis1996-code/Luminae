@@ -6,15 +6,17 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-const currencyOptions: string[] = [
-  "USD",
-  "EUR",
-  "GBP",
-  "INR",
-  "JPY",
-  "CNY",
-  "KRW",
+const currency: string[] = ["USD", "EUR", "GBP", "INR", "JPY", "CNY", "KRW"];
+export const lang: string[] = [
+  "English",
+  "Spanish",
+  "French",
+  "German",
+  "Italian",
+  "Portuguese",
 ];
+
+const currencyOptions: string[] = ["USD", "EUR", "GBP", "INR", "JPY", "CNY", "KRW"];
 const langOptions: string[] = [
   "English",
   "Spanish",
