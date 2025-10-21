@@ -52,7 +52,7 @@ const navLinks: NavLinks[] = [
   },
 ];
 
-const socialLonks: SocialLinks[] = [
+export const socialLonks: SocialLinks[] = [
   {
     icon: <Instagram />,
     link: "https://www.instagram.com/",

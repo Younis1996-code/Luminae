@@ -2,7 +2,7 @@ import Dropdown from "@/components/ui/Dropdown";
 import React from "react";
 
 const currency: string[] = ["USD", "EUR", "GBP", "INR", "JPY", "CNY", "KRW"];
-const lang: string[] = [
+export const lang: string[] = [
   "English",
   "Spanish",
   "French",

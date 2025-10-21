@@ -83,3 +83,24 @@ export const footerLists : FooterList[] = [
     ]
   },
 ]
+
+
+
+
+export const moneyProvidersLinks = [
+  {
+    linkTo:'https://www.visa.com/',
+    svg: '/assets/icons/visaLogo.svg',
+    name:'Visa'
+  },
+  {
+    linkTo:'https://www.mastercard.com/',
+    svg : '/assets/icons/mastercardLogo.svg',
+    name:'Mastercard'
+  },
+  {
+    linkTo:'https://www.paypal.com/',
+    svg : '/assets/icons/paypalLogo.svg',
+    name:'Paypal'
+  }
+]

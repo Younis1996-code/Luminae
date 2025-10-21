@@ -7,7 +7,6 @@ import Paragraph from "../shared/Typograpgy/Paragraph";
 
 interface Props{
   className:string;
-
 }
 
 const FooterCard = ({className} : Props) => {
@@ -29,7 +28,7 @@ const FooterCard = ({className} : Props) => {
        onMouseEnter={()=>setBtnHover(true)}
        onMouseLeave={()=>setBtnHover(false)}
        onClick={emailSubmited}>
-        <SendIcon color={btnHover ? "#6EB3FF" : "#434343"}/>
+        <SendIcon color={btnHover ? "#6EB3FF" : "#434343"} />
        </button>
       </div>
     </div>
