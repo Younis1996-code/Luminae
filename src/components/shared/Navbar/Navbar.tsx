@@ -1,6 +1,6 @@
 "use client";
 
-import React, { ReactNode, useState } from "react";
+import React, { ReactNode, useEffect, useState } from "react";
 import Instagram from "@/components/ui/svg/Instagram";
 import Facebook from "@/components/ui/svg/Facebook";
 import Telegram from "@/components/ui/svg/Telegram";
@@ -8,6 +8,9 @@ import MobNav from "./MobNav";
 import SecondNav from "./SecondNav";
 import FirstNav from "./FirstNav";
 import CatNav from "./CatNav";
+import { useDispatch } from "react-redux";
+import { categories } from "@/data/categories";
+import { setMainCategories } from "@/redux/slices/categoriesSlice";
 
 export interface NavLinks {
   name: string;
@@ -18,21 +21,6 @@ export interface SocialLinks {
   icon: ReactNode;
   link: string;
 }
-
-const categories: string[] = [
-  "All Categories",
-  "Women",
-  "Male",
-  "Mother-Child",
-  "Home & Furniture",
-  "Super market",
-  "Cosmetics",
-  "Shoe & Bag",
-  "Electronic",
-  "Sport & Outdoor",
-  "Best seller",
-];
-
 const navLinks: NavLinks[] = [
   {
     name: "About",
@@ -70,6 +58,11 @@ const socialLonks: SocialLinks[] = [
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const [catNavOpen, setCatNavOpen] = useState<boolean>(false);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(setMainCategories(categories));
+  }, [dispatch]);
+
   const scrollTop = () => {
     window.scrollTo({
       top: 0,
@@ -81,7 +74,6 @@ const Navbar = () => {
       <nav className="fixed top-0 left-0 w-screen z-[1000] bg-White transition-all duration-300 ease-[cubic-bezier(0.25, 0.46, 0.45, 0.94)] shadow-sm">
         <FirstNav
           scrollTop={scrollTop}
-          categories={categories}
           socialLonks={socialLonks}
           navLinks={navLinks}
           isMenuOpen={isMenuOpen}

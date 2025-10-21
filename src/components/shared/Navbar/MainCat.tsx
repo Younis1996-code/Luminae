@@ -1,41 +1,82 @@
 import TransitionLink from "@/components/ui/TransitionLink";
-// import { usePathname } from 'next/navigation';
+import {
+  setSelectedCategory,
+  setSubCategories,
+} from "@/redux/slices/categoriesSlice";
+import { RootState } from "@/redux/store";
+import { usePathname } from "next/navigation";
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-const categories: string[] = [
-  "All Categories",
-  "Women",
-  "Male",
-  "Mother-Child",
-  "Home & Furniture",
-  "Super market",
-  "Cosmetics",
-  "Shoe & Bag",
-  "Electronic",
-  "Sport & Outdoor",
-  "Best seller",
-];
+const MainCat = ({
+  search,
+  aside,
+  onselectedCategory,
+  setHoveredCategory,
+}: {
+  search?: boolean;
+  aside?: boolean;
+  onselectedCategory?: (item: string) => void;
+  setHoveredCategory?: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
+  const MainCategories = useSelector(
+    (state: RootState) => state.categories.mainCategories
+  );
+  const pathName = usePathname();
+  const dispatch = useDispatch();
 
-const MainCat = ({ search, aside }: { search?: boolean; aside?: boolean }) => {
-  // const pathName = usePathname();
+  if (!Array.isArray(MainCategories)) return null;
+
+  const handleSelectedCategory = (item: string) => {
+    dispatch(setSelectedCategory(item));
+    onselectedCategory?.(item);
+  };
+
+  const handlehoveredCategory = (cat: string) => {
+    if (setHoveredCategory) {
+      setHoveredCategory(search ? false : true);
+    }
+    dispatch(setSubCategories(cat));
+  };
+
+  const handleMouseLeave = () => {
+    if (setHoveredCategory) {
+      setHoveredCategory(false);
+    }
+  };
   return (
     <>
-      {categories.slice(search ? 0 : 1).map((cat, index) => {
-        // const isActive =
-        //       pathName === href || (pathName?.startsWith(href) && href !== "/");
+      {MainCategories.slice(search ? 0 : 1).map((cat, index) => {
+        const catLink =
+          typeof cat?.link === "string"
+            ? cat.link
+            : `/categories/${encodeURIComponent(
+                cat?.name?.toLowerCase?.() ?? "unknown"
+              )}`;
 
+        const catName = cat?.name ?? "Unknown";
+
+        const isActive =
+          catName === "All Categories"
+            ? pathName === "/"
+            : pathName?.startsWith(catLink) && catName !== "All Categories";
         return (
-          <TransitionLink
+          <div
             key={index}
-            href="#"
-            className={`text-Grey-600 hover:text-sText transition-colors duration-300 ease-in-out leading-[20px] font-normal ${
-              aside
-                ? "py-2 px-6 hover:bg-Grey-100 text-sm"
-                : "text-[1.41271vw] lg:text-sm"
-            }`}
+            onMouseEnter={() => handlehoveredCategory(catName)}
+            onMouseLeave={handleMouseLeave}
+            className={`${search ? "px-6 py-3 hover:bg-Grey-50 w-full" : ""}`}
           >
-            {cat}
-          </TransitionLink>
+            <TransitionLink
+              href={catLink}
+              onClick={() => handleSelectedCategory(catName)}
+              className={`text-Grey-600 hover:text-sText text-sm transition-colors duration-300 ease-in-out leading-[20px] font-normal ${
+                isActive ? "text-sText font-bold" : ""
+              } ${aside ? "py-2 px-6 hover:bg-Grey-100" : "whitespace-nowrap"}`}
+            >
+              {catName}
+            </TransitionLink>
+          </div>
         );
       })}
     </>
