@@ -8,9 +8,11 @@ import Paragraph from "../shared/Typograpgy/Paragraph";
 interface DropdownProps {
   className?: string;
   size?: string;
-  data: string[];
+  data: { name: string; link: string }[] | string[];
   white?: boolean;
   side?: boolean;
+   onSelect?: (value: string) => void;
+   initialValue?: string;
 }
 
 const Dropdown: React.FC<DropdownProps> = ({
@@ -19,10 +21,28 @@ const Dropdown: React.FC<DropdownProps> = ({
   data,
   white,
   side,
+  onSelect,
+  initialValue
 }: DropdownProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
-  const [selected, setSelected] = useState(data[0]);
+  
+  const normalizedData =
+  typeof data[0] === "string"
+    ? (data as string[]).map((item) => ({ name: item }))
+    : (data as { name: string; link?: string }[]);
+
+  const [selected, setSelected] = useState<string>(
+  () => initialValue || normalizedData[0].name
+);
+
+useEffect(() => {
+    if (initialValue) {
+      setSelected(initialValue);
+    }
+  }, [initialValue, selected]);
+
+
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -50,6 +70,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   const handleSelect = (item: string) => {
     setSelected(item);
     setIsOpen(false);
+    onSelect?.(item);
   };
 
   return (
@@ -102,16 +123,16 @@ const Dropdown: React.FC<DropdownProps> = ({
         <div className={`flex flex-col`}>
           {data.map((item, index) => (
             <TransitionLink
-              href="#"
+              href={typeof item === "string" ? item : item.link}
               key={index}
-              onClick={() => handleSelect(item)}
+              onClick={() => handleSelect(typeof item === "string" ? item : item.name)}
               className={`${
                 side
                   ? "px-6 py-2 hover:bg-Grey-100 hover:text-sText"
                   : "px-6 py-3 hover:bg-Grey-50"
               } text-Grey-600 cursor-pointer transition-colors duration-300`}
             >
-              {item}
+              {typeof item === "string" ? item : item.name}
             </TransitionLink>
           ))}
         </div>
