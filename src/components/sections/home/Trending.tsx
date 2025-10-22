@@ -6,6 +6,7 @@ import Heading from "@/components/shared/Typograpgy/Heading";
 import Button from "@/components/ui/Button";
 import ContainerX from "@/components/shared/Containers/ContainerX";
 import { useRouter } from "next/navigation";
+import MostTrendingCard from "@/components/cards/MostTrendingCard";
 const Trending = () => {
       const router = useRouter();
       const { items: flashSales } = useSelector(
@@ -33,10 +34,13 @@ const Trending = () => {
           className="
           flex gap-5 p-1 overflow-x-auto scrollbar-hide scroll-smooth
           sm:grid sm:grid-cols-2 
-          lg:grid-cols-4
+          lg:grid-cols-3
         "
         >
           {" "}
+          <MostTrendingCard/>
+          <MostTrendingCard/>
+          <MostTrendingCard/>
           {/* {displayedItems.map((item) => (
             <FlashSalesCard
               key={item.id}
