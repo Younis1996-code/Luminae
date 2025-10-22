@@ -1,3 +1,5 @@
+'use client'
+
 import React from "react";
 import ContainerX from "../Containers/ContainerX";
 import MobileMenu from "@/components/ui/svg/MobileMenu";
@@ -5,14 +7,12 @@ import TransitionLink from "@/components/ui/TransitionLink";
 import CardImage from "../CardImage";
 import Heading from "../Typograpgy/Heading";
 import CartBtn from "./CartBtn";
-import Dropdown from "@/components/ui/Dropdown";
-import SearchIcon from "@/components/ui/svg/SearchIcon";
 import { NavLinks, SocialLinks } from "./Navbar";
 import { usePathname } from "next/navigation";
+import NavSearch from "./NavSearch";
 
 interface FirstNavProps {
   scrollTop: () => void;
-  categories: string[];
   socialLonks: SocialLinks[];
   navLinks: NavLinks[];
   isMenuOpen: boolean;
@@ -21,7 +21,6 @@ interface FirstNavProps {
 
 const FirstNav = ({
   scrollTop,
-  categories,
   socialLonks,
   navLinks,
   isMenuOpen,
@@ -54,24 +53,7 @@ const FirstNav = ({
 
           <CartBtn />
         </div>
-        <div className="flex items-center justify-between gap-1 border border-Grey-200 rounded-sm px-3 py-2 w-full md:max-w-86.5">
-          <input
-            type="text"
-            placeholder="Search Products"
-            className="max-xs:max-w-[45%] xs:flex-1 xs:min-w-fit border-none outline-none focus:outline-none text-sm font-normal leading-[20px] placeholder:text-Grey-400"
-          />
-          <div className="flex items-center gap-3 w-fit 2xl:min-w-fit">
-            <Dropdown
-              className="pr-3 border-r border-Grey-100"
-              size="w-6 h-6"
-              data={categories}
-            />
-
-            <button className="text-Grey-800 w-5 h-5 pointer-events-none">
-              <SearchIcon />
-            </button>
-          </div>
-        </div>
+        <NavSearch />
       </div>
 
       <div className="flex-1 hidden md:flex justify-between md:gap-6 lg:gap-3 xl:gap-6 lg:items-center">
@@ -84,10 +66,10 @@ const FirstNav = ({
               <TransitionLink
                 key={index}
                 href={link.href}
-                className={`text-sm leading-[20px] ${
+                className={`relative text-sm leading-[20px] transition-colors duration-300 ease-in-out before:content-[''] before:absolute before:-bottom-1 before:w-full before:h-0.5 before:bg-sText before:rounded-full before:left-0 before:origin-left before:transition-transform before:duration-2000 hover:before:scale-x-100 ${
                   isActive
-                    ? "text-sText font-bold"
-                    : "text-Grey-800 font-notmal"
+                    ? "text-sText font-bold before:scale-x-100"
+                    : "text-Grey-800 font-notmal before:scale-x-0"
                 }`}
               >
                 {link.name}

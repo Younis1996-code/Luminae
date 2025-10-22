@@ -1,12 +1,16 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { useDispatch, useSelector, useStore } from 'react-redux'
 import flashSalesReducer from "./slices/flashSalesSlice";
+import categoriesReducer from "./slices/categoriesSlice";
+import langCurSliceReducer from "./slices/langCurSlice";
 
 
 export const makeStore = () => {
   return configureStore({
     reducer: {
       flashSales: flashSalesReducer,
+      categories: categoriesReducer,
+      langCurSlice: langCurSliceReducer
     },
   });
 }
