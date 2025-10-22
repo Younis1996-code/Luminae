@@ -3,6 +3,7 @@ import { useDispatch, useSelector, useStore } from 'react-redux'
 import flashSalesReducer from "./slices/flashSalesSlice";
 import categoriesReducer from "./slices/categoriesSlice";
 import langCurSliceReducer from "./slices/langCurSlice";
+import trendingReducer from "./slices/trendingSlice";
 
 
 export const makeStore = () => {
@@ -10,7 +11,8 @@ export const makeStore = () => {
     reducer: {
       flashSales: flashSalesReducer,
       categories: categoriesReducer,
-      langCurSlice: langCurSliceReducer
+      langCurSlice: langCurSliceReducer,
+      trending: trendingReducer,
     },
   });
 }

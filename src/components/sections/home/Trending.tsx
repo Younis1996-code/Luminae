@@ -1,7 +1,6 @@
 "use client";
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
-import FlashSalesCard from "@/components/cards/FlashSalesCard";
 import Heading from "@/components/shared/Typograpgy/Heading";
 import Button from "@/components/ui/Button";
 import ContainerX from "@/components/shared/Containers/ContainerX";
@@ -9,12 +8,12 @@ import { useRouter } from "next/navigation";
 import MostTrendingCard from "@/components/cards/MostTrendingCard";
 const Trending = () => {
       const router = useRouter();
-      const { items: flashSales } = useSelector(
-        (state: RootState) => state.flashSales
+      const { items: trending } = useSelector(
+        (state: RootState) => state.trending
       );
 
-      const displayedItems = flashSales.slice(0, 4);
-      const shouldShowButton = flashSales.length > 4;
+      const displayedItems = trending.slice(0, 3);
+      const shouldShowButton = trending.length > 3;
   return (
     <ContainerX className="my-6 md:my-21">
       <section className="flex flex-col space-y-12">
@@ -38,21 +37,15 @@ const Trending = () => {
         "
         >
           {" "}
-          <MostTrendingCard/>
-          <MostTrendingCard/>
-          <MostTrendingCard/>
-          {/* {displayedItems.map((item) => (
-            <FlashSalesCard
+          {displayedItems.map((item) => (
+            <MostTrendingCard
               key={item.id}
               title={item.title}
-              description={item.description}
-              image={item.image}
-              rating={item.rating}
-              newPrice={item.newPrice}
-              oldPrice={item.oldPrice}
-              time={item.time}
+              subtitle={item.subtitle}
+              imageSrc={item.imageSrc}
+              price={item.price}
             />
-          ))} */}
+          ))}
         </div>
       </section>
     </ContainerX>

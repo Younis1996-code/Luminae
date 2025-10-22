@@ -1,17 +1,32 @@
 import Image from "next/image";
-
 import Paragraph from "../shared/Typograpgy/Paragraph";
+import NewArivalsTag from "../ui/NewArivalsTag";
+import ShopButton from "../ui/ShopButton";
 
-const MostTrendingCard = () => {
+interface MostTrendingCardProps {
+  tag?: string;
+  title: string;
+  subtitle: string;
+  price: number;
+  imageSrc: string;
+}
+
+const MostTrendingCard = ({
+  tag = "New Arrival",
+  title,
+  subtitle,
+  price,
+  imageSrc,
+}: MostTrendingCardProps) => {
   return (
-    <div>
-      <div className="h-[437px]">
+    <div className="rounded-t-lg overflow-hidden">
+      <div className="relative p-[10px] h-[437px] w-full">
+        <NewArivalsTag text={tag} className="relative z-10" />
         <Image
-          src="/trending3.png"
-          alt="trend1"
-          width={200}
-          height={437}
-          className="object-cover mt-4"
+          src={imageSrc}
+          alt={title}
+          fill
+          className="object-cover relative z-1"
         />
       </div>
 
@@ -24,7 +39,7 @@ const MostTrendingCard = () => {
               weight="bold"
               lineH="lh25"
             >
-              Cool & Sexy Calvin Klein
+              {title}
             </Paragraph>
             <Paragraph
               size="p14"
@@ -32,10 +47,10 @@ const MostTrendingCard = () => {
               weight="medium"
               lineH="lh20"
             >
-              Dotted dress - Casual
+              {subtitle}
             </Paragraph>
           </div>
-          <button className="px-6 py-3 border border-gray-200 rounded-lg"></button>
+          <ShopButton price={price} onClick={(): void => {}} />
         </div>
       </div>
     </div>
