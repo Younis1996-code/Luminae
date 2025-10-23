@@ -43,7 +43,7 @@ const ExploreCard = ({img, title, desc, color, className}:Props) => {
             src={img}
             alt={title}
             fill
-            className="object-cover"
+            className="object-top"
             quality={100}
           />
       </div>
