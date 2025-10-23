@@ -7,9 +7,11 @@ import { useDispatch, useSelector } from "react-redux";
 import MainCat from "./MainCat";
 import { setSelectedCategory } from "@/redux/slices/categoriesSlice";
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 const NavSearch = () => {
   const dispatch = useDispatch();
+  const pathName = usePathname();
   const selectedCategory = useSelector(
     (state: RootState) => state.categories.selectedCategory
   );
@@ -18,6 +20,14 @@ const NavSearch = () => {
     const saved = localStorage.getItem("selectedCategory");
     if (saved) dispatch(setSelectedCategory(saved));
   }, [dispatch]);
+
+   const decodedPath = decodeURIComponent(pathName!.toLowerCase());
+  const decodedCategory = selectedCategory?.toLowerCase() || "";
+
+  const isActive =
+    decodedCategory.length > 0 && decodedPath.includes(decodedCategory);
+
+  const selectedValue = isActive ? selectedCategory : "All Categories";
 
   return (
     <div className="flex items-center justify-between gap-1 border border-Grey-200 rounded-sm px-3 py-2 w-full md:max-w-86.5">
@@ -31,7 +41,7 @@ const NavSearch = () => {
           className="pr-3 border-r border-Grey-100"
           size="w-6 h-6"
           initialValue={selectedCategory}
-          selected1={selectedCategory}
+          selected1={selectedValue}
         >
           <div className="flex flex-col">
             <MainCat search />

@@ -6,7 +6,7 @@ interface Props {
   aside?: boolean;
   setCatNavOpen: React.Dispatch<React.SetStateAction<boolean>>;
   catNavOpen?: boolean;
-  setIsMenuOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsMenuOpen?: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const CatBtn = ({ aside, catNavOpen, setCatNavOpen, setIsMenuOpen }: Props) => {
