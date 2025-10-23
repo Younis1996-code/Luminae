@@ -8,7 +8,7 @@ import { exploreCardsData } from "@/data/ExploreCardsData";
 const Hero = () => {
 
   return (
-<section className="flex w-full min-h-screen flex-col pt-[25vh]">
+<section className="flex w-full min-h-screen flex-col pt-[29vh]">
   <div className="heroContent hidden md:flex flex-1 items-stretch w-full">
 
     {/* Image side */}
@@ -17,14 +17,15 @@ const Hero = () => {
         src="/assets/images/Home/left.png"
         alt="women wearing fashionable clothes"
         fill
-        className="object-top"
+        className="object-cover"
         quality={100}
+      
       />
     </div>
 
     {/* Text side */}
-    <div className="relative flex flex-col items-center justify-center w-1/2 lg:w-[62%] bg-cover bg-center bg-[url('/assets/images/Home/heroImageBG.png')]">
-      <div className="absolute inset-0 bg-gradient-to-l from-blue-600/45 to-blue-600/45" />
+    <div className="relative flex flex-col items-center justify-center w-1/2 lg:w-[62%] bg-cover bg-left bg-[url('/assets/images/Home/heroImageBG.png')]">
+      <div className="absolute inset-0 bg-blue-700/50 " />
 
       <div className="relative z-10 w-full flex flex-col items-center text-white max-w-[315px] lg:max-w-full">
         <Heading level={2} size="h32" weight="bold" className="uppercase mb-8 text-[32px] text-center">
