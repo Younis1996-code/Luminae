@@ -10,6 +10,8 @@ import FlashSalesCard from "@/components/cards/FlashSalesCard";
 
 import { trendingData } from "@/data/trending";
 import { flashSalesData } from "@/data/flashSales";
+import { topData } from "@/data/top";
+import TopCard from "@/components/cards/TopCard";
 // import { top100Data } from "@/data/top100";
 
 type CollectionConfig = {
@@ -26,10 +28,10 @@ const collections: Record<string, CollectionConfig> = {
     data: flashSalesData,
     Card: FlashSalesCard,
   },
-  // "top-100": {
-  //   data: top100Data,
-  //   Card: Top100Card,
-  // },
+  "top-100": {
+    data: topData,
+    Card: TopCard,
+  },
 };
 
 const CollectionPage = () => {

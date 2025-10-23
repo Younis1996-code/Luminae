@@ -9,6 +9,7 @@ export type Top = {
   price: number;
   oldPrice: number;
   image: string;
+  isFavorite?: boolean; 
 };
 
 interface TopState {
@@ -16,7 +17,7 @@ interface TopState {
 }
 
 const initialState: TopState = {
-  items: topData,
+  items: topData.map((item) => ({ ...item, isFavorite: false })),
 };
 
 const topSlice = createSlice({
@@ -27,13 +28,17 @@ const topSlice = createSlice({
       state.items = action.payload;
     },
     addTop: (state, action: PayloadAction<Top>) => {
-      state.items.push(action.payload);
+      state.items.push({ ...action.payload, isFavorite: false });
     },
     removeTop: (state, action: PayloadAction<number>) => {
       state.items = state.items.filter((item) => item.id !== action.payload);
     },
+    toggleFavorite: (state, action: PayloadAction<number>) => {
+      const item = state.items.find((item) => item.id === action.payload);
+      if (item) item.isFavorite = !item.isFavorite; 
+    },
   },
 });
 
-export const { setTop, addTop, removeTop } = topSlice.actions;
+export const { setTop, addTop, removeTop, toggleFavorite } = topSlice.actions;
 export default topSlice.reducer;

@@ -35,4 +35,22 @@ export const topData = [
     oldPrice: 487,
     image: "/top4.png",
   },
+  {
+    id: 5,
+    brand: "Mango dress",
+    title: "Kimono & Caftan - Colorful - Night club fit",
+    reviews: 121,
+    price: 365,
+    oldPrice: 487,
+    image: "/top4.png",
+  },
+  {
+    id: 6,
+    brand: "Mango dress",
+    title: "Kimono & Caftan - Colorful - Night club fit",
+    reviews: 121,
+    price: 365,
+    oldPrice: 487,
+    image: "/top4.png",
+  },
 ];

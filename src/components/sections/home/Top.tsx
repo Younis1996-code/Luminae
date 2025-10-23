@@ -24,7 +24,7 @@ const Top = () => {
           </Heading>
 
           {shouldShowButton && (
-            <Button onClick={() => router.push("/collection/top")}>
+            <Button onClick={() => router.push("/collection/top-100")}>
               View More
             </Button>
           )}
@@ -47,6 +47,7 @@ const Top = () => {
               reviews={item.reviews}
               price={item.price}
               oldPrice={item.oldPrice}
+              isFavorite={item.isFavorite}
             />
           ))}
         </div>
