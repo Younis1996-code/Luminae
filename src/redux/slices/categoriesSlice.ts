@@ -56,7 +56,6 @@ const categoriesSlice = createSlice({
       state.hoveredCategory = chosenCategory;
 
       if (chosenCategory === "All Categories") {
-        // collect all subcategories
         state.subCategories = state.categories.flatMap(
           (cat) => cat.subCategories || []
         );
