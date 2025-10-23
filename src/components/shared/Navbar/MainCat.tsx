@@ -39,11 +39,6 @@ const MainCat = ({
     dispatch(setSubCategories(cat));
   };
 
-  const handleMouseLeave = () => {
-    if (setHoveredCategory) {
-      setHoveredCategory(false);
-    }
-  };
   return (
     <>
       {MainCategories.slice(search ? 0 : 1).map((cat, index) => {
@@ -64,7 +59,6 @@ const MainCat = ({
           <div
             key={index}
             onMouseEnter={() => handlehoveredCategory(catName)}
-            onMouseLeave={handleMouseLeave}
             className={`${search ? "px-6 py-3 hover:bg-Grey-50 w-full" : ""}`}
           >
             <TransitionLink

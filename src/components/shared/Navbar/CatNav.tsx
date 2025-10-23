@@ -7,6 +7,7 @@ const CatNav = ({ catNavOpen }: { catNavOpen: boolean }) => {
   const [hoveredCategory, setHoveredCategory] = React.useState<boolean>(false);
   return (
     <div
+    onMouseLeave={() => setHoveredCategory(false)}
       className={`transition-all duration-300 origin-top hidden md:block ${
         catNavOpen
           ? "max-h-full opacity-100 scale-y-100"
