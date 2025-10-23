@@ -19,7 +19,7 @@ const CatNav = ({ catNavOpen }: { catNavOpen: boolean }) => {
       >
         <MainCat setHoveredCategory={setHoveredCategory} />
       </ContainerX>
-      {hoveredCategory && <SubCat />}
+      <SubCat hoveredCategory1={hoveredCategory} />
     </div>
   );
 };
