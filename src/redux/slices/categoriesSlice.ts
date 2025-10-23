@@ -1,5 +1,5 @@
 import {  CategoryData, SubCategory } from "@/data/categories";
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface CategoryState {
   categories: CategoryData[];
@@ -8,7 +8,9 @@ interface CategoryState {
     link: string;
   }[];
   subCategories: SubCategory[];
-  selectedCategory: string
+  subCategoryImage: string | string[];
+  selectedCategory: string;
+  hoveredCategory: string
 }
 
 const initialState: CategoryState = {
@@ -20,7 +22,9 @@ const initialState: CategoryState = {
     },
   ],
   subCategories: [],
+  subCategoryImage: '',
   selectedCategory: "All Categories",
+  hoveredCategory: ''
 };
 
 const categoriesSlice = createSlice({
@@ -47,18 +51,31 @@ const categoriesSlice = createSlice({
       ];
     },
 
-    setSubCategories: (state, action) => {
-  const choosenCategory = action.payload;
+    setSubCategories: (state, action: PayloadAction<string>) => {
+      const chosenCategory = action.payload;
+      state.hoveredCategory = chosenCategory;
 
-  if (choosenCategory === "All Categories") {
-    state.subCategories = state.categories.flatMap(
-      (cat) => cat.subCategories || []
-    );
-  } else {
-    state.subCategories =
-      state.categories.find((cat) => cat.name === choosenCategory)?.subCategories || [];
-  }
-},
+      if (chosenCategory === "All Categories") {
+        // collect all subcategories
+        state.subCategories = state.categories.flatMap(
+          (cat) => cat.subCategories || []
+        );
+
+        // collect all images (filter out empty)
+        const allImages = state.categories
+          .map((cat) => cat.image)
+          .filter(Boolean) as string[];
+
+        state.subCategoryImage = allImages;
+      } else {
+        const matchedCategory = state.categories.find(
+          (cat) => cat.name === chosenCategory
+        );
+
+        state.subCategories = matchedCategory?.subCategories || [];
+        state.subCategoryImage = matchedCategory?.image || "";
+      }
+    },
 
 
     setSelectedCategory: (state, action) => {

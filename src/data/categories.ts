@@ -15,7 +15,7 @@ export const categories: CategoryData[] = [
   {
     id: 1,
     name: "Woman",
-    image: "/images/",
+    image: "/assets/images/subCats/subCatWomen.webp",
     subCategories: [
       {
         title: "Shoe & Bag",
@@ -78,7 +78,7 @@ export const categories: CategoryData[] = [
   {
     id: 2,
     name: "Male",
-    image: "/images/",
+    image: "/assets/images/subCats/subCatWomen.webp",
     subCategories: [
       {
         title: "Clothes",
@@ -116,7 +116,7 @@ export const categories: CategoryData[] = [
   {
     id: 3,
     name: "Mother-Child",
-    image: "/images/",
+    image: "/assets/images/subCats/subCatWomen.webp",
     subCategories: [
       {
         title: "Baby Essentials",
@@ -147,7 +147,7 @@ export const categories: CategoryData[] = [
   {
     id: 4,
     name: "Home & Furniture",
-    image: "/images/",
+    image: "/assets/images/subCats/subCatWomen.webp",
     subCategories: [
       {
         title: "Living Room",
@@ -171,7 +171,7 @@ export const categories: CategoryData[] = [
   {
     id: 5,
     name: "Super Market",
-    image: "/images/",
+    image: "/assets/images/subCats/subCatWomen.webp",
     subCategories: [
       {
         title: "Beverages",
@@ -195,7 +195,7 @@ export const categories: CategoryData[] = [
   {
     id: 6,
     name: "Cosmetics",
-    image: "/images/",
+    image: "/assets/images/subCats/subCatWomen.webp",
     subCategories: [
       {
         title: "Makeup",
@@ -225,7 +225,7 @@ export const categories: CategoryData[] = [
   {
     id: 7,
     name: "Shoe & Bag",
-    image: "/images/.jpg",
+    image: "/assets/images/subCats/subCatWomen.webp",
     subCategories: [
       {
         title: "Bags",
@@ -251,7 +251,7 @@ export const categories: CategoryData[] = [
   {
     id: 8,
     name: "Electronic",
-    image: "/images/.jpg",
+    image: "/assets/images/subCats/subCatWomen.webp",
     subCategories: [
       {
         title: "Phones & Tablets",
@@ -280,7 +280,7 @@ export const categories: CategoryData[] = [
   {
     id: 9,
     name: "Sport & Outdoor",
-    image: "/images/.jpg",
+    image: "/assets/images/subCats/subCatWomen.webp",
     subCategories: [
       {
         title: "Sportswear",
@@ -300,7 +300,7 @@ export const categories: CategoryData[] = [
   {
     id: 10,
     name: "Best Seller",
-    image: "/images/.jpg",
+    image: "/assets/images/subCats/subCatWomen.webp",
     subCategories: [
       {
         title: "Top Products",
