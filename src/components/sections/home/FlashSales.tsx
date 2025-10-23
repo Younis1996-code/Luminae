@@ -25,7 +25,7 @@ export default function FlashSalesSection() {
           </Heading>
 
           {shouldShowButton && (
-            <Button onClick={() => router.push("/flash-sales")}>
+            <Button onClick={() => router.push("/collection/flash-sales")}>
               View More
             </Button>
           )}
@@ -35,7 +35,8 @@ export default function FlashSalesSection() {
           className="
           flex gap-5 p-1 overflow-x-auto scrollbar-hide scroll-smooth
           sm:grid sm:grid-cols-2 
-          lg:grid-cols-4
+          lg:grid-cols-3
+          xl:grid-cols-4
         "
         >
           {" "}

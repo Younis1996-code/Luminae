@@ -1,9 +1,9 @@
 "use client";
 import { ReactNode } from "react";
-import { RightArrow } from "../icons/Arrow";
+import { RightArrow } from "./svg/Arrow";
 
 type ViewAllButtonProps = {
-  children: ReactNode; // ✅ lowercase
+  children: ReactNode;
   onClick: () => void;
 };
 
