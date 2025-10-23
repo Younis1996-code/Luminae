@@ -60,13 +60,6 @@ const categoriesSlice = createSlice({
         state.subCategories = state.categories.flatMap(
           (cat) => cat.subCategories || []
         );
-
-        // collect all images (filter out empty)
-        const allImages = state.categories
-          .map((cat) => cat.image)
-          .filter(Boolean) as string[];
-
-        state.subCategoryImage = allImages;
       } else {
         const matchedCategory = state.categories.find(
           (cat) => cat.name === chosenCategory

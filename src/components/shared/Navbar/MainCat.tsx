@@ -13,11 +13,15 @@ const MainCat = ({
   aside,
   onselectedCategory,
   setHoveredCategory,
+  setCatNavOpen,
+  setIsMenuOpen
 }: {
   search?: boolean;
   aside?: boolean;
   onselectedCategory?: (item: string) => void;
   setHoveredCategory?: React.Dispatch<React.SetStateAction<boolean>>;
+  setCatNavOpen?: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsMenuOpen?: React.Dispatch<React.SetStateAction<boolean>>
 }) => {
   const MainCategories = useSelector(
     (state: RootState) => state.categories.mainCategories
@@ -30,11 +34,13 @@ const MainCat = ({
   const handleSelectedCategory = (item: string) => {
     dispatch(setSelectedCategory(item));
     onselectedCategory?.(item);
+    setCatNavOpen?.(false);
+    setIsMenuOpen?.(false);
   };
 
   const handlehoveredCategory = (cat: string) => {
-    if (setHoveredCategory) {
-      setHoveredCategory(search ? false : true);
+    if (setHoveredCategory && !search) {
+      setHoveredCategory(true);
     }
     dispatch(setSubCategories(cat));
   };
@@ -56,21 +62,17 @@ const MainCat = ({
             ? pathName === "/"
             : pathName?.startsWith(catLink) && catName !== "All Categories";
         return (
-          <div
-            key={index}
-            onMouseEnter={() => handlehoveredCategory(catName)}
-            className={`${search ? "px-6 py-3 hover:bg-Grey-50 w-full" : ""}`}
-          >
             <TransitionLink
+             key={index}
               href={catLink}
               onClick={() => handleSelectedCategory(catName)}
+              onMouseEnter={() => handlehoveredCategory(catName)}
               className={`text-Grey-600 hover:text-sText text-sm transition-colors duration-300 ease-in-out leading-[20px] font-normal ${
                 isActive ? "text-sText font-bold" : ""
-              } ${aside ? "py-2 px-6 hover:bg-Grey-100" : "whitespace-nowrap"}`}
+              } ${aside ? "py-2 px-6 hover:bg-Grey-100" : "whitespace-nowrap"} ${search ? "px-6 py-3 hover:bg-Grey-50 w-full" : ""}`}
             >
               {catName}
             </TransitionLink>
-          </div>
         );
       })}
     </>

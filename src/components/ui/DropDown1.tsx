@@ -81,6 +81,7 @@ const DropDown1 = ({
       </button>
 
       <div
+      onClick={() => setIsOpen((prev) => !prev)}
         className={` ${
           side
             ? "bg-Grey-50 shadow-sm"

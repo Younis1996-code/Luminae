@@ -27,9 +27,9 @@ const SubCat = ({ hoveredCategory1 }: { hoveredCategory1?: boolean }) => {
       <div
         className={`grid grid-cols-4 gap-x-12 gap-y-10 col-span-4 w-full max-w-fit`}
       >
-        {subCats.map((subCat) => (
+        {subCats.map((subCat, index) => (
           <div
-            key={subCat.title}
+            key={index}
             className={`w-full flex flex-col gap-4 max-w-fit h-fit ${
               subCat.title === "Clothes" ? "row-span-2" : ""
             }`}
@@ -62,12 +62,12 @@ const SubCat = ({ hoveredCategory1 }: { hoveredCategory1?: boolean }) => {
           </div>
         ))}
       </div>
-      <CardImage
+      {subImage && subImage !== '' && <CardImage
         src={subImage as string}
         alt={`${hoveredCategory} category image`}
         className="col-span-2"
         objectType="contain"
-      />
+      />}
     </div>
   );
 };

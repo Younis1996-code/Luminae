@@ -64,7 +64,7 @@ const MobNav = ({
         aria-label="Mobile Navigation"
       >
         <div className="mt-[180px] flex flex-col items-start gap-8 w-full">
-          <div className="flex flex-col items-start">
+          <div className="flex flex-col items-start w-full">
             {navLinks.map(({ name, href }) => {
               const isActive =
                 pathName === href ||
@@ -75,7 +75,7 @@ const MobNav = ({
                   href={href}
                   onClick={toggleMenu}
                   className={`w-full p-3 ${
-                    isActive ? "border-r-2 border-mBlue-600 font-semibold" : ""
+                    isActive ? "border-r-5 border-mBlue-600 font-semibold text-sText bg-gradient-to-r from-White via-mBlue-50 to-mBlue-100 transition-colors duration-3000" : ""
                   }`}
                 >
                   {name}
@@ -89,6 +89,7 @@ const MobNav = ({
               aside
               setCatNavOpen={setCatNavOpen}
               catNavOpen={catNavOpen}
+              setIsMenuOpen={setIsMenuOpen}
             />
 
             <LangCurBtns aside />
