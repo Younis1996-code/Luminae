@@ -25,7 +25,7 @@ export default function FlashSalesSection() {
           </Heading>
 
           {shouldShowButton && (
-            <Button onClick={() => router.push("/flash-sales")}>
+            <Button onClick={() => router.push("/collection/flash-sales")}>
               View More
             </Button>
           )}

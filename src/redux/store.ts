@@ -4,6 +4,7 @@ import flashSalesReducer from "./slices/flashSalesSlice";
 import categoriesReducer from "./slices/categoriesSlice";
 import langCurSliceReducer from "./slices/langCurSlice";
 import trendingReducer from "./slices/trendingSlice";
+import topReducer from "./slices/top";
 
 
 export const makeStore = () => {
@@ -13,6 +14,7 @@ export const makeStore = () => {
       categories: categoriesReducer,
       langCurSlice: langCurSliceReducer,
       trending: trendingReducer,
+      top: topReducer,
     },
   });
 }

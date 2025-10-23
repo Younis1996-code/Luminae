@@ -8,7 +8,7 @@ const PriceBox = ({ newPrice, oldPrice }: PriceBoxProp) => {
       const discount = ((oldPrice - newPrice) / oldPrice) * 100;
 
   return (
-    <div className="flex justify-between items-center space-x-1 font-bold">
+    <div className="flex justify-between items-center space-x-1 font-bold w-fit">
       <Paragraph
         size="p14"
         className="text-Notification"

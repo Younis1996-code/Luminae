@@ -12,21 +12,22 @@ interface MostTrendingCardProps {
 }
 
 const MostTrendingCard = ({
-  tag = "New Arrival",
+  tag = "",
   title,
   subtitle,
   price,
   imageSrc,
 }: MostTrendingCardProps) => {
   return (
-    <div className="rounded-t-lg overflow-hidden">
+    <div className="rounded-lg overflow-hidden min-w-[357px]">
       <div className="relative p-[10px] h-[437px] w-full">
-        <NewArivalsTag text={tag} className="relative z-10" />
+        {tag !== "" && <NewArivalsTag text={tag} className="relative z-10" />}
+
         <Image
           src={imageSrc}
           alt={title}
           fill
-          className="object-cover relative z-1"
+          className="object-cover object-[50%_40%]  relative z-1"
         />
       </div>
 

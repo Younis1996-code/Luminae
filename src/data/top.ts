@@ -1,0 +1,38 @@
+export const topData = [
+  {
+    id: 1,
+    brand: "Mango",
+    title: "Kimono & Caftan - Black - Regular fit",
+    reviews: 289,
+    price: 228,
+    oldPrice: 290,
+    image: "/top.png",
+  },
+  {
+    id: 2,
+    brand: "Zara",
+    title: "Midi top - Daily fit",
+    reviews: 523,
+    price: 95,
+    oldPrice: 145,
+    image: "/top2.png",
+  },
+  {
+    id: 3,
+    brand: "Uniqlo",
+    title: "Midi atlas Slim fit - Bohemian",
+    reviews: 86,
+    price: 125,
+    oldPrice: 156,
+    image: "/top3.png",
+  },
+  {
+    id: 4,
+    brand: "Mango dress",
+    title: "Kimono & Caftan - Colorful - Night club fit",
+    reviews: 121,
+    price: 365,
+    oldPrice: 487,
+    image: "/top4.png",
+  },
+];
