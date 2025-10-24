@@ -1,5 +1,5 @@
 import FooterList from "@/components/shared/Footer/FooterList"
-import ContainerX from "../../components/shared/Containers/ContainerX"
+import ContainerX from "../shared/Containers/ContainerX"
 import { footerLists } from "@/data/footerData"
 import FooterCard from "@/components/cards/FooterCard"
 import { moneyProvidersLinks } from "@/data/footerData"
@@ -43,7 +43,7 @@ const Footer = () => {
             }
             </div>
             <div className="hidden md:inline-block">
-              <Dropdown data={lang}/>
+              <Dropdown data={lang} dropUp/>
             </div>
           </div>
 

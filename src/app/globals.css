@@ -56,6 +56,9 @@
    --color-Green-800: #008644;
    --color-Green-900: #00662F;
 
+
+   /* additional colors */
+   --color-Pink-ligh:#F7DDD0;
    --breakpoint-xs: 360px;
 
 }

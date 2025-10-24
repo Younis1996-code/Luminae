@@ -1,6 +1,10 @@
 import React from "react";
 
-const DropdownIcon = () => {
+interface DropDownIconProps{
+  className?:string;
+}
+
+const DropdownIcon = ({className} :DropDownIconProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -8,6 +12,7 @@ const DropdownIcon = () => {
     //   height="24"
       viewBox="0 0 25 24"
       fill="none"
+      className={className}
     >
       <path
         d="M7.5 12.5L12.5 17.5L17.5 12.5"
