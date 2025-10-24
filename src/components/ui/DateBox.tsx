@@ -1,5 +1,4 @@
 "use client";
-import { useEffect, useState } from "react";
 import Paragraph from "../shared/Typograpgy/Paragraph";
 
 type DateBoxProps = {
@@ -9,35 +8,6 @@ type DateBoxProps = {
 };
 
 const DateBox = ({ hours, minutes, seconds }: DateBoxProps) => {
-  const [time, setTime] = useState({ hours, minutes, seconds });
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setTime((prev) => {
-        let { hours, minutes, seconds } = prev;
-
-        if (hours === 0 && minutes === 0 && seconds === 0) {
-          return { hours, minutes, seconds };
-        }
-
-        if (seconds > 0) {
-          seconds -= 1;
-        } else if (minutes > 0) {
-          minutes -= 1;
-          seconds = 59;
-        } else if (hours > 0) {
-          hours -= 1;
-          minutes = 59;
-          seconds = 59;
-        }
-
-        return { hours, minutes, seconds };
-      });
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, [hours, minutes, seconds]);
-
   const format = (num: number) => num.toString().padStart(2, "0");
 
   return (
@@ -50,7 +20,7 @@ const DateBox = ({ hours, minutes, seconds }: DateBoxProps) => {
             weight="extrabold"
             lineH="lh30"
           >
-            {format(time.hours)}
+            {format(hours)}
           </Paragraph>
           <Paragraph
             className="text-Grey-400"
@@ -76,7 +46,7 @@ const DateBox = ({ hours, minutes, seconds }: DateBoxProps) => {
             weight="extrabold"
             lineH="lh30"
           >
-            {format(time.minutes)}{" "}
+            {format(minutes)}{" "}
           </Paragraph>
           <Paragraph
             className="text-Grey-400"
@@ -102,7 +72,7 @@ const DateBox = ({ hours, minutes, seconds }: DateBoxProps) => {
             weight="extrabold"
             lineH="lh30"
           >
-            {format(time.seconds)}{" "}
+            {format(seconds)}{" "}
           </Paragraph>
           <Paragraph
             className="text-Grey-400"

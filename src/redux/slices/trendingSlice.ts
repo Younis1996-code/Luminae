@@ -1,18 +1,9 @@
 import { trendingData } from "@/data/trending";
-
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-
-export type Trending = {
-  id: number;
-  tag: string;
-  title: string;
-  subtitle: string;
-  price: number;
-  imageSrc: string;
-};
+import { Product } from "@/types/product";
 
 interface TrendingState {
-  items: Trending[];
+  items: Product[];
 }
 
 const initialState: TrendingState = {
@@ -23,10 +14,10 @@ const trendingSlice = createSlice({
   name: "trending",
   initialState,
   reducers: {
-    setTrending: (state, action: PayloadAction<Trending[]>) => {
+    setTrending: (state, action: PayloadAction<Product[]>) => {
       state.items = action.payload;
     },
-    addTrending: (state, action: PayloadAction<Trending>) => {
+    addTrending: (state, action: PayloadAction<Product>) => {
       state.items.push(action.payload);
     },
     removeTrending: (state, action: PayloadAction<number>) => {

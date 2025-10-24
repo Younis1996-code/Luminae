@@ -3,12 +3,13 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 import FlashSalesCard from "@/components/cards/FlashSalesCard";
 import Heading from "@/components/shared/Typograpgy/Heading";
-import Button from "@/components/ui/Button";
 import ContainerX from "@/components/shared/Containers/ContainerX";
-import { useRouter } from "next/navigation"; 
+import { useRouter } from "next/navigation";
+import TransitionLink from "@/components/ui/TransitionLink";
+import { RightArrow } from "@/components/ui/svg/Arrow";
 
 export default function FlashSalesSection() {
-  const router = useRouter(); 
+  const router = useRouter();
   const { items: flashSales } = useSelector(
     (state: RootState) => state.flashSales
   );
@@ -25,9 +26,13 @@ export default function FlashSalesSection() {
           </Heading>
 
           {shouldShowButton && (
-            <Button onClick={() => router.push("/collection/flash-sales")}>
+            <TransitionLink
+              href="/collection/flash-sales"
+              className="text-Grey-800 hover:text-mBlue-600 transition flex items-center text-[2.51046vw] md:text-[1.210898vw] lg:text-[1vw] xl:text-[0.83333vw]"
+            >
               View More
-            </Button>
+              <RightArrow className="text-[3.76569vw] md:text-[1.816347vw] lg:text-[1.5vw] xl:text-[1.25vw] hover:text-mBlue-600 ml-1" />
+            </TransitionLink>
           )}
         </div>
 
@@ -41,16 +46,7 @@ export default function FlashSalesSection() {
         >
           {" "}
           {displayedItems.map((item) => (
-            <FlashSalesCard
-              key={item.id}
-              title={item.title}
-              description={item.description}
-              image={item.image}
-              rating={item.rating}
-              newPrice={item.newPrice}
-              oldPrice={item.oldPrice}
-              time={item.time}
-            />
+            <FlashSalesCard key={item.id} {...item} />
           ))}
         </div>
       </section>

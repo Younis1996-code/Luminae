@@ -4,9 +4,10 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 import TopCard from "@/components/cards/TopCard";
 import Heading from "@/components/shared/Typograpgy/Heading";
-import Button from "@/components/ui/Button";
 import ContainerX from "@/components/shared/Containers/ContainerX";
 import { useRouter } from "next/navigation";
+import TransitionLink from "@/components/ui/TransitionLink";
+import { RightArrow } from "@/components/ui/svg/Arrow";
 
 const Top = () => {
   const router = useRouter();
@@ -24,9 +25,13 @@ const Top = () => {
           </Heading>
 
           {shouldShowButton && (
-            <Button onClick={() => router.push("/collection/top-100")}>
+            <TransitionLink
+              href="/collection/top-100"
+              className="text-Grey-800 hover:text-mBlue-600 transition flex items-center text-[2.51046vw] md:text-[1.210898vw] lg:text-[1vw] xl:text-[0.83333vw]"
+            >
               View More
-            </Button>
+              <RightArrow className="text-[3.76569vw] md:text-[1.816347vw] lg:text-[1.5vw] xl:text-[1.25vw] hover:text-mBlue-600 ml-1" />
+            </TransitionLink>
           )}
         </div>
 
@@ -38,17 +43,7 @@ const Top = () => {
           "
         >
           {displayedItems.map((item) => (
-            <TopCard
-              key={item.id}
-              id={item.id}
-              brand={item.brand}
-              title={item.title}
-              image={item.image}
-              reviews={item.reviews}
-              price={item.price}
-              oldPrice={item.oldPrice}
-              isFavorite={item.isFavorite}
-            />
+            <TopCard key={item.id} {...item} />
           ))}
         </div>
       </section>

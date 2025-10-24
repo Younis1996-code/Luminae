@@ -2,7 +2,7 @@ import Paragraph from "../shared/Typograpgy/Paragraph";
 
 type PriceBoxProps = {
   newPrice: number;
-  oldPrice: number;
+  oldPrice: any
   plainDiscount?: boolean; 
 };
 
