@@ -17,7 +17,7 @@ const SecondNav = ({
   catNavOpen: boolean;
 }) => {
   return (
-    <ContainerX className="bg-Grey-800 py-2 hidden md:flex justify-between gap-[10%] lg:gap-0 mb-7">
+    <ContainerX className="bg-Grey-800 py-2 hidden md:flex justify-between gap-[10%] lg:gap-0">
       <div className="flex justify-between items-center lg:justify-start lg:gap-6 xl:gap-8 w-full lg:w-[30%] xl:w-[30%]">
         <CatBtn setCatNavOpen={setCatNavOpen} catNavOpen={catNavOpen} />
 

@@ -1,7 +1,7 @@
 import React from "react";
 
 type Level = 1 | 2 | 3 | 4 | 5 ;
-type Size = "h36" | "h32" | "h28" | "h20" | "h16" | "h14";
+type Size = "h36" | "h32" | "h28" | "h20" | "h16" | "h14"| "h12";
 type Weight = "normal" | "medium" | "semibold" | "bold" | "extrabold" ;
 type TagType = React.ElementType
 type LineH = "lh50" | "lh46" | "lh25" | "lh20"
@@ -23,7 +23,8 @@ export default function Heading({ children, level = 3, size = "h32", className =
     h28: "text-[4.1841vw] md:text-[2.8254vw] lg:text-[2.3333vw] xl:text-[1.9444vw]",
     h20: "text-[3.76569vw] md:text-[2.01816vw] lg:text-[1.6666vw] xl:text-[1.3888vw]",
     h16: "text-[3.34728vw] md:text-[1.6145vw] lg:text-[1.3333vw] xl:text-[1.1111vw]",
-    h14:"text-sm"
+    h14:"text-sm",
+    h12:"text-[2.51vw] lg:text-[1.21vw] xl:text-[0.83vw]"
   }[size];
   const weightClass = {
     normal: "font-normal",

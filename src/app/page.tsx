@@ -1,5 +1,7 @@
 import FlashSalesCard from "@/components/cards/FlashSalesCard";
+import TopCard from "@/components/cards/TopCard";
 import FlashSales from "@/components/sections/home/FlashSales";
+import Top from "@/components/sections/home/Top";
 import Trending from "@/components/sections/home/Trending";
 import Hero from "@/components/sections/home/Hero";
 import ExploreCardsSection from "@/components/sections/home/ExploreCardsSection";
@@ -15,6 +17,7 @@ export default function Home() {
       <ExploreCardsSection  topSection={true}/>
       <HomeBanner />
       <ExploreCardsSection  topSection={false} />
+      <Top/>
     </>
   );
 }

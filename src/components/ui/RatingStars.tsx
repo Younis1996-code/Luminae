@@ -1,6 +1,6 @@
-import { StarIcon } from "../icons/Star"
+import { StarIcon } from "./svg/Star";
 import Paragraph from "../shared/Typograpgy/Paragraph";
-type Size = 4 | 6 ;
+type Size = 4 | 6;
 type RatingStarsProp = {
   num: number;
   size: Size;
@@ -32,4 +32,4 @@ const RatingStars = ({ num, size }: RatingStarsProp) => {
   );
 };
 
-export default RatingStars
+export default RatingStars;

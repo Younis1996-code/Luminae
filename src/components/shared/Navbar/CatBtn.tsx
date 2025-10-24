@@ -6,9 +6,10 @@ interface Props {
   aside?: boolean;
   setCatNavOpen: React.Dispatch<React.SetStateAction<boolean>>;
   catNavOpen?: boolean;
+  setIsMenuOpen?: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const CatBtn = ({ aside, catNavOpen, setCatNavOpen }: Props) => {
+const CatBtn = ({ aside, catNavOpen, setCatNavOpen, setIsMenuOpen }: Props) => {
   const handleCate = () => {
     setCatNavOpen((prev) => !prev);
   };
@@ -40,7 +41,7 @@ const CatBtn = ({ aside, catNavOpen, setCatNavOpen }: Props) => {
               : "max-h-0 opacity-0 scale-y-0"
           } overflow-hidden`}
         >
-          <MainCat aside />
+          <MainCat aside setCatNavOpen={setCatNavOpen} setIsMenuOpen={setIsMenuOpen} />
         </div>
       )}
     </>
