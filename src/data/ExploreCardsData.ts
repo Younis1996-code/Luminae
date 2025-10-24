@@ -23,5 +23,20 @@ export const exploreCardsData:ExploreCard[] = [
     desc:"Bikini & Poolside glam include",
     color:'blue',
     category:"beach"
-  }
+  },
+  {
+    img:"/assets/images/Home/darkGreenWoman.png",
+    title:'The most famous sport brands',
+    desc:"Get in gym essentials",
+    color:'darkGreen',
+    category:"casual"
+  },
+  {
+    img:"/assets/images/Home/pinkWoman.png",
+    title:'The Pinky Barbie Edition',
+    desc:"Lets play dress up",
+    color:'pink',
+    category:"party"
+  },
+
 ]

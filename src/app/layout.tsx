@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Lato } from "next/font/google";
 import "./globals.css";
 import StoreProvider from "@/redux/StoreProvider";
-import Footer from "@/sections/shared/Footer";
+import Footer from "@/components/sections/Footer";
 import Navbar from "@/components/shared/Navbar/Navbar";
 
 const lato = Lato({

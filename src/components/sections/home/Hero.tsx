@@ -8,7 +8,7 @@ import { exploreCardsData } from "@/data/ExploreCardsData";
 const Hero = () => {
 
   return (
-<section className="flex w-full min-h-screen flex-col pt-[29vh]">
+<section className="flex w-full min-h-screen flex-col pt-[192px] md:pt-[215px] lg:pt-[204px]">
   <div className="heroContent hidden md:flex flex-1 items-stretch w-full">
 
     {/* Image side */}
@@ -19,7 +19,6 @@ const Hero = () => {
         fill
         className="object-cover"
         quality={100}
-      
       />
     </div>
 

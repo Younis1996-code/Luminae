@@ -16,7 +16,7 @@ interface Props{
 
 const ExploreCard = ({img, title, desc, color, className}:Props) => {
   return (
-    <div className={`flex items-stretch ${className}`}>
+    <div className={`flex items-stretch ${className} group`}>
       {/* text side */}
       <div className={`flex flex-col text-white 
         ${color === 'blue' ? 'bg-[#0186C4]' : color === 'red' ?
@@ -43,7 +43,7 @@ const ExploreCard = ({img, title, desc, color, className}:Props) => {
             src={img}
             alt={title}
             fill
-            className="object-top"
+            className="object-top duration-200 group-hover:contrast-125 group-hover:scale-110"
             quality={100}
           />
       </div>

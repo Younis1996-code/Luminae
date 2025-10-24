@@ -13,6 +13,7 @@ interface DropdownProps {
   side?: boolean;
    onSelect?: (value: string) => void;
    initialValue?: string;
+  dropUp?:boolean
 }
 
 const Dropdown: React.FC<DropdownProps> = ({
@@ -22,7 +23,8 @@ const Dropdown: React.FC<DropdownProps> = ({
   white,
   side,
   onSelect,
-  initialValue
+  initialValue,
+  dropUp
 }: DropdownProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -116,8 +118,12 @@ useEffect(() => {
               ? "max-h-full pointer-events-auto"
               : "max-h-0 pointer-events-none"
             : ""
-        }  w-max min-w-full z-50 left-0 overflow-hidden transition-all duration-300 origin-top ${
-          isOpen ? "opacity-100 scale-y-100" : "opacity-0 scale-y-0"
+        }  w-max min-w-full z-50 left-0 overflow-hidden transition-all duration-300 origin-top
+        ${
+          isOpen ? 
+          dropUp ?
+           'opacity-100 scale-y-100 -translate-y-[calc(100%+40px)]' : 'opacity-100 scale-y-100'
+           : 'opacity-0 scale-y-0'
         }`}
       >
         <div className={`flex flex-col`}>
