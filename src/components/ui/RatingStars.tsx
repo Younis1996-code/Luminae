@@ -2,7 +2,7 @@ import { StarIcon } from "./svg/Star";
 import Paragraph from "../shared/Typograpgy/Paragraph";
 type Size = 4 | 6;
 type RatingStarsProp = {
-  num: number;
+  num?: number;
   size: Size;
 };
 
