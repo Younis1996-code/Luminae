@@ -23,7 +23,6 @@ export function RightArrow({
         stroke="#434343"
         strokeLinecap="round"
         strokeLinejoin="round"
-        fill="#FFFFFF"
       />
     </svg>
   );
