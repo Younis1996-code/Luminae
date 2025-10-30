@@ -5,7 +5,7 @@ import Heading from "@/components/shared/Typograpgy/Heading";
 import Button from "@/components/ui/Button";
 import ContainerX from "@/components/shared/Containers/ContainerX";
 import { useRouter } from "next/navigation";
-import MostTrendingCard from "@/components/cards/MostTrendingCard";
+import MostTrendingCard from "@/components/ui/cards/MostTrendingCard";
 const Trending = () => {
   const router = useRouter();
   const { items: trending } = useSelector((state: RootState) => state.trending);

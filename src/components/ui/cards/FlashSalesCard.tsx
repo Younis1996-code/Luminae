@@ -1,9 +1,9 @@
 import Image from "next/image";
-import Heading from "../shared/Typograpgy/Heading";
-import DateBox from "../ui/DateBox";
-import Paragraph from "../shared/Typograpgy/Paragraph";
-import RatingStars from "../ui/RatingStars";
-import PriceBox from "../ui/PriceBox";
+import Heading from "../../shared/Typograpgy/Heading";
+import DateBox from "../DateBox";
+import Paragraph from "../../shared/Typograpgy/Paragraph";
+import RatingStars from "../RatingStars";
+import PriceBox from "../PriceBox";
 
 type FlashSalesCardProps = {
   title: string;

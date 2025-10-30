@@ -4,14 +4,14 @@ import { useParams } from "next/navigation";
 import ContainerX from "@/components/shared/Containers/ContainerX";
 import Heading from "@/components/shared/Typograpgy/Heading";
 
-import MostTrendingCard from "@/components/cards/MostTrendingCard";
-import FlashSalesCard from "@/components/cards/FlashSalesCard";
+import MostTrendingCard from "@/components/ui/cards/MostTrendingCard";
+import FlashSalesCard from "@/components/ui/cards/FlashSalesCard";
 // import Top100Card from "@/components/cards/Top100Card";
 
 import { trendingData } from "@/data/trending";
 import { flashSalesData } from "@/data/flashSales";
 import { topData } from "@/data/top";
-import TopCard from "@/components/cards/TopCard";
+import TopCard from "@/components/ui/cards/TopCard";
 // import { top100Data } from "@/data/top100";
 
 type CollectionConfig = {

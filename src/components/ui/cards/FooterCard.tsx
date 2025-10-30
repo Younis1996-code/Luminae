@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import SendIcon from "../ui/svg/SendIcon";
-import Heading from "../shared/Typograpgy/Heading";
-import Paragraph from "../shared/Typograpgy/Paragraph";
+import SendIcon from "../svg/SendIcon";
+import Heading from "../../shared/Typograpgy/Heading";
+import Paragraph from "../../shared/Typograpgy/Paragraph";
 
 interface Props {
   className: string;

@@ -3,11 +3,11 @@ import { useDispatch } from "react-redux";
 import { toggleFavorite } from "@/redux/slices/top"; 
 import { useState } from "react";
 import Image from "next/image";
-import Heading from "../shared/Typograpgy/Heading";
-import Paragraph from "../shared/Typograpgy/Paragraph";
-import RatingStars from "../ui/RatingStars";
-import PriceBox from "../ui/PriceBox";
-import Heart from "../ui/svg/Heart";
+import Heading from "../../shared/Typograpgy/Heading";
+import Paragraph from "../../shared/Typograpgy/Paragraph";
+import RatingStars from "../RatingStars";
+import PriceBox from "../PriceBox";
+import Heart from "../svg/Heart";
 
 type TopCardProps = {
   id: number;

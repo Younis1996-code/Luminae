@@ -1,7 +1,7 @@
 import Image from "next/image";
-import Paragraph from "../shared/Typograpgy/Paragraph";
-import NewArivalsTag from "../ui/NewArivalsTag";
-import ShopButton from "../ui/ShopButton";
+import Paragraph from "../../shared/Typograpgy/Paragraph";
+import NewArivalsTag from "../NewArivalsTag";
+import ShopButton from "../ShopButton";
 
 interface MostTrendingCardProps {
   tag?: string;
