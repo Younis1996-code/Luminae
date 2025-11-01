@@ -2,7 +2,7 @@
 
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
-import TopCard from "@/components/cards/TopCard";
+import TopCard from "@/components/ui/cards/TopCard";
 import Heading from "@/components/shared/Typograpgy/Heading";
 import ContainerX from "@/components/shared/Containers/ContainerX";
 import { useRouter } from "next/navigation";

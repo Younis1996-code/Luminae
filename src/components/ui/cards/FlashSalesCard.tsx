@@ -2,11 +2,11 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import Heading from "../shared/Typograpgy/Heading";
-import Paragraph from "../shared/Typograpgy/Paragraph";
-import RatingStars from "../ui/RatingStars";
-import PriceBox from "../ui/PriceBox";
-import DateBox from "../ui/DateBox";
+import Heading from "@/components/shared/Typograpgy/Heading"; 
+import Paragraph from "@/components/shared/Typograpgy/Paragraph";
+import RatingStars from "../RatingStars";
+import PriceBox from "../PriceBox";
+import DateBox from "../DateBox"; 
 import { Product } from "@/types/product";
 
 type FlashSalesCardProps = Pick<

@@ -1,7 +1,7 @@
 import FooterList from "@/components/shared/Footer/FooterList"
 import ContainerX from "../shared/Containers/ContainerX"
 import { footerLists } from "@/data/footerData"
-import FooterCard from "@/components/cards/FooterCard"
+import FooterCard from "@/components/ui/cards/FooterCard"
 import { moneyProvidersLinks } from "@/data/footerData"
 import Dropdown from "@/components/ui/Dropdown"
 import { lang } from "@/components/shared/Navbar/LangCurBtns"

@@ -4,7 +4,7 @@ import { RootState } from "@/redux/store";
 import Heading from "@/components/shared/Typograpgy/Heading";
 import ContainerX from "@/components/shared/Containers/ContainerX";
 import { useRouter } from "next/navigation";
-import MostTrendingCard from "@/components/cards/MostTrendingCard";
+import MostTrendingCard from "@/components/ui/cards/MostTrendingCard"; 
 import TransitionLink from "@/components/ui/TransitionLink";
 import { RightArrow } from "@/components/ui/svg/Arrow";
 const Trending = () => {

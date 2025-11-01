@@ -1,5 +1,5 @@
 
-import CTA from "@/components/btns/CTA";
+import CTA from "@/components/ui/btns/CTA";
 import ExploreCard from "@/components/shared/ExploreCard";
 import Heading from "@/components/shared/Typograpgy/Heading";
 import Image from "next/image";
