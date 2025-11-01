@@ -1,7 +1,7 @@
 "use client";
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
-import FlashSalesCard from "@/components/cards/FlashSalesCard";
+import FlashSalesCard from "@/components/ui/cards/FlashSalesCard";
 import Heading from "@/components/shared/Typograpgy/Heading";
 import ContainerX from "@/components/shared/Containers/ContainerX";
 import { useRouter } from "next/navigation";

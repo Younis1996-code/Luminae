@@ -1,12 +1,9 @@
 'use client'
 
-import Heading from "@/components/shared/Typograpgy/Heading"
-import Paragraph from "@/components/shared/Typograpgy/Paragraph"
 import { BannerSlide } from "@/data/homeBannerData"
 import Image from "next/image"
 import { useEffect, useState } from "react"
-import DropdownIcon from "../svg/DropdownIcon"
-import Arrow from "../svg/Arrow"
+import { RightArrow } from "../svg/Arrow"
 
 
 interface AdsSliderProps{
@@ -33,11 +30,11 @@ const AdsSlider = ({data} : AdsSliderProps) => {
   }, [data.length]);
   return (
     <div className="relative">
-      <button onClick={handleNext} className="absolute top-1/2 -translate-y-1/2 cursor-pointer right-0 rotate-180">
-        <Arrow color="#434343" className="fill-none w-8 h-8"/>
+      <button onClick={handleNext} className="absolute top-1/2 -translate-y-1/2 cursor-pointer right-0 ">
+        <RightArrow color="#434343" className="fill-none w-8 h-8"/>
       </button>
-      <button onClick={handlePev} className="absolute top-1/2 -translate-y-1/2 cursor-pointer left-0">
-        <Arrow color="#434343" className="fill-none w-8 h-8"/>
+      <button onClick={handlePev} className="absolute top-1/2 -translate-y-1/2 cursor-pointer left-0 rotate-180">
+        <RightArrow color="#434343" className="fill-none w-8 h-8"/>
       </button>
       <div className="overflow-hidden w-full max-w-[83.8096%] mx-auto">
         {/* cards container, contains three cards */}

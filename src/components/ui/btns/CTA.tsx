@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import CtaIcon from "../ui/svg/CtaIcon";
+import CtaIcon from "../svg/CtaIcon"; 
 
 interface Props {
   action: "moveToShop" | "showModal" | "moveToCart";
