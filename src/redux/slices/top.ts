@@ -1,19 +1,10 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { topData } from "@/data/top";
+import { Product } from "@/types/product";
 
-export type Top = {
-  id: number;
-  brand: string;
-  title: string;
-  reviews: number;
-  price: number;
-  oldPrice: number;
-  image: string;
-  isFavorite?: boolean; 
-};
 
 interface TopState {
-  items: Top[];
+  items: Product[];
 }
 
 const initialState: TopState = {
@@ -24,10 +15,10 @@ const topSlice = createSlice({
   name: "top",
   initialState,
   reducers: {
-    setTop: (state, action: PayloadAction<Top[]>) => {
+    setTop: (state, action: PayloadAction<Product[]>) => {
       state.items = action.payload;
     },
-    addTop: (state, action: PayloadAction<Top>) => {
+    addTop: (state, action: PayloadAction<Product>) => {
       state.items.push({ ...action.payload, isFavorite: false });
     },
     removeTop: (state, action: PayloadAction<number>) => {
@@ -35,7 +26,7 @@ const topSlice = createSlice({
     },
     toggleFavorite: (state, action: PayloadAction<number>) => {
       const item = state.items.find((item) => item.id === action.payload);
-      if (item) item.isFavorite = !item.isFavorite; 
+      if (item) item.isFavorite = !item.isFavorite;
     },
   },
 });

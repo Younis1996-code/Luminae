@@ -1,33 +1,37 @@
-import Image from "next/image";
-import Paragraph from "../../shared/Typograpgy/Paragraph";
-import NewArivalsTag from "../NewArivalsTag";
-import ShopButton from "../ShopButton";
+"use client";
 
-interface MostTrendingCardProps {
-  tag?: string;
-  title: string;
-  subtitle: string;
-  price: number;
-  imageSrc: string;
-}
+import Image from "next/image";
+import Paragraph from "../shared/Typograpgy/Paragraph";
+import NewArivalsTag from "../ui/NewArivalsTag";
+import ShopButton from "../ui/ShopButton";
+import { Product } from "@/types/product";
+
+type MostTrendingCardProps = Product & {
+  tag?: string; 
+};
 
 const MostTrendingCard = ({
-  tag = "",
+  tag,
   title,
-  subtitle,
+  brand,
+  description,
   price,
-  imageSrc,
+  image,
 }: MostTrendingCardProps) => {
+   const shortText = description
+     ? description.split(" ").slice(0, 3).join(" ")
+     : brand;
   return (
-    <div className="rounded-lg overflow-hidden min-w-[357px]">
+    <div className="rounded-lg overflow-hidden min-w-[357px] bg-white shadow-md hover:shadow-lg transition-all duration-300">
+      {/* Image Section */}
       <div className="relative p-[10px] h-[437px] w-full">
-        {tag !== "" && <NewArivalsTag text={tag} className="relative z-10" />}
+        {tag && <NewArivalsTag text={tag} className="relative z-10" />}
 
         <Image
-          src={imageSrc}
+          src={image}
           alt={title}
           fill
-          className="object-cover object-[50%_40%]  relative z-1"
+          className="object-cover object-[50%_40%] rounded-t-lg"
         />
       </div>
 
@@ -48,10 +52,11 @@ const MostTrendingCard = ({
               weight="medium"
               lineH="lh20"
             >
-              {subtitle}
+              {shortText} 
             </Paragraph>
           </div>
-          <ShopButton price={price} onClick={(): void => {}} />
+
+          <ShopButton price={price} onClick={() => {}} />
         </div>
       </div>
     </div>
