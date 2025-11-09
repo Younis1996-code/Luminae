@@ -3,7 +3,7 @@ import React from "react";
 
 type Size = "p24" | "p20" | "p18" | "p16" | "p14" | "p12" | "p10" ;
 type Weight = "normal" | "medium" | "semibold" | "extrabold" | "bold"  ;
-type LineH = "lh28" | "lh25" | "lh20" | "lh30" ;
+type LineH = "lh28" | "lh25" | "lh24"| "lh20" | "lh30" ;
 
 interface Props {
   children: React.ReactNode;
@@ -35,6 +35,7 @@ export default function Paragraph({ children, size = "p18", className = "", weig
     lh25: "leading-[25px]",
     lh20: "leading-[20px]",
     lh30: "leading-[30px]",
+    lh24: "leading-[24px]",
   }[lineH];
  
   return <p className={`${sizeClass} ${weightClass} ${LineHClass} ${className}`}>{children}</p>;
