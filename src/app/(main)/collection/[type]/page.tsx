@@ -7,9 +7,10 @@ import { RootState } from "@/redux/store";
 import ContainerX from "@/components/shared/Containers/ContainerX";
 import Heading from "@/components/shared/Typograpgy/Heading";
 
-import MostTrendingCard from "@/components/cards/MostTrendingCard";
-import FlashSalesCard from "@/components/cards/FlashSalesCard";
-import TopCard from "@/components/cards/TopCard";
+// import TopCard from "@/components/cards/TopCard";
+import MostTrendingCard from "@/components/ui/cards/MostTrendingCard";
+import FlashSalesCard from "@/components/ui/cards/FlashSalesCard";
+import TopCard from "@/components/ui/cards/TopCard";
 
 const CollectionPage = () => {
   const params = useParams<{ type: string }>();
