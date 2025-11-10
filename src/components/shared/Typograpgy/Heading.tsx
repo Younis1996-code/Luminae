@@ -4,7 +4,7 @@ type Level = 1 | 2 | 3 | 4 | 5 ;
 type Size = "h40" | "h36" | "h32" | "h28" | "h20" | "h16" | "h14" | "h12";
 type Weight = "normal" | "medium" | "semibold" | "bold" | "extrabold" ;
 type TagType = React.ElementType
-type LineH =  "lh56" | "lh50" | "lh46" | "lh25" | "lh20"
+type LineH =  "lh56" | "lh50" | "lh46" | "lh25" | "lh20" | "lh15";
 
 interface Props {
   children: React.ReactNode;
@@ -40,6 +40,7 @@ export default function Heading({ children, level = 3, size = "h36", className =
     lh46: "leading-[46px]",
     lh25: "leading-[25px]",
     lh20: "leading-[20px]",
+    lh15: "leading-[15px]",
   }[lineH];
  
   return <Tag className={`${sizeClass} ${weightClass} ${lineHClass} ${className}`}>{children}</Tag>;
